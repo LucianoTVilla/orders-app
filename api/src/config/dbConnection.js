@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const username = 'luchotest';
-const password = 'lucho';
+const username = process.env.MONGODB_USERNAME;
+const password = process.env.MONGODB_PASSWORD;
 
-const uri = process.env.MONGODB_URI
-  || `mongodb+srv://${username}:${password}@cluster0.rz7urg0.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${username}:${password}@${uri}/?retryWrites=true&w=majority`;
 
 module.exports = () => mongoose.connect(uri, {
   useNewUrlParser: true,
